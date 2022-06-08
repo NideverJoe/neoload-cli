@@ -38,7 +38,7 @@ jobs:
       targetType: 'inline'
       script: |
         neoload login --url ${{parameters.neoloadApiUrl}} ${{parameters.neoloadToken}} \
-                test-settings --zone ${{parameters.zoneId}} --scenario "Scenario 1 - Ramp Up (Slow)" 
+                test-settings --zone ${{parameters.zoneId}} --scenario "Scenario 1 - Ramp Up (Slow)" \
                 project --path tests/neoload_projects/ADO CLI PIPELINES/ upload "Scenario 1 - Ramp Up (Slow)"
 
   - task: Bash@3
