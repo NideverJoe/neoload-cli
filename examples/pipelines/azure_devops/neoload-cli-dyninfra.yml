@@ -38,7 +38,7 @@ jobs:
       targetType: 'inline'
       script: |
         neoload login --url ${{parameters.neoloadApiUrl}} ${{parameters.neoloadToken}} \
-                test-settings --zone ${{parameters.zoneId}} --scenario Scenario 1 - Ramp Up (Slow) "My Azure Test With CLI" \
+                test-settings --zone ${{parameters.zoneId}} --scenario "Scenario 1 - Ramp Up (Slow)" "My Azure Test With CLI" \
                 project --path tests/neoload_projects/ADO CLI PIPELINES/ upload "My Azure Test With CLI"
 
   - task: Bash@3
