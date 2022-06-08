@@ -39,7 +39,7 @@ jobs:
       script: |
         neoload login --url ${{parameters.neoloadApiUrl}} ${{parameters.neoloadToken}} \
                 test-settings --zone ${{parameters.zoneId}} --scenario "Scenario 1 - Ramp Up (Slow)" \
-                project --path tests/neoload_projects/ADO CLI PIPELINES/ upload "Scenario 1 - Ramp Up (Slow)"
+                project use "70f1982b-0612-494d-a702-306f6abc9bab"
 
   - task: Bash@3
     displayName: Run the NeoLoad test
