@@ -9,10 +9,10 @@ parameters:
   default: 'https://neoload-api.saas.neotys.com/'
 - name: neoloadToken
   type: string
-  default: 'specify_token_or_get_it_from_credentials'
+  default: 'c47c62c1ad529e0baf86dbc01544dd3749398a46a3026fcb'
 - name: zoneId
   type: string
-  default: 'defaultzone'
+  default: 'jlREk'
 
 jobs:
 - job: RunLoadTest
@@ -38,8 +38,8 @@ jobs:
       targetType: 'inline'
       script: |
         neoload login --url ${{parameters.neoloadApiUrl}} ${{parameters.neoloadToken}} \
-                test-settings --zone ${{parameters.zoneId}} --scenario sanityScenario patch "My Azure Test With CLI" \
-                project --path tests/neoload_projects/example_1/ upload "My Azure Test With CLI"
+                test-settings --zone ${{parameters.zoneId}} --scenario Scenario 1 - Ramp Up (Slow) "My Azure Test With CLI" \
+                project --path tests/neoload_projects/ADO CLI PIPELINES/ upload "My Azure Test With CLI"
 
   - task: Bash@3
     displayName: Run the NeoLoad test
@@ -48,8 +48,6 @@ jobs:
       targetType: 'inline'
       script: |
         neoload run \
-                       --web-vu 5 \
-                       --as-code default.yaml,slas/uat.yaml \
                        --name "Azure pipeline performance regression task $(Build.BuildNumber)" \
                        --external-url "$(Build.BuildUri)" \
                        --external-url-label "Azure CI build $(Build.BuildNumber)" \
